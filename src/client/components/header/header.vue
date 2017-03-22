@@ -2,7 +2,7 @@
   <header class="navbar clearfix" id="header">
     <div class="container">
       <a>
-        <img class="img-responsive" src="~public/img/logo.png" height="30" width="120">
+        <img class="img-responsive" src="~public/img/logo.png">
       </a>
 
     </div>
@@ -34,5 +34,8 @@
     border:none;
     border-radius: 0px;
     margin: 0px;
+    img{
+      height: 40px;
+    }
   }
 </style>
