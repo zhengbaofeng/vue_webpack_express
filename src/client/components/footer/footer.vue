@@ -1,13 +1,15 @@
 <template>
   <footer id="footer">
-    <ul class="list-inline">
-      <li>11111111</li>
-      <li>11111111</li>
-      <li>11111111</li>
-      <li>11111111</li>
-      <li>11111111</li>
-      <li>11111111</li>
-    </ul>
+    <div class="container">
+      <ul class="list-inline">
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+        <li>11111111</li>
+      </ul>
+    </div>
   </footer>
 </template>
 
