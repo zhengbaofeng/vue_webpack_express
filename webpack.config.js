@@ -11,8 +11,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.vue'],
     alias: {
-      'jquery': 'jquery',
-      'public': path.resolve(__dirname,'src/client/public')
+      vue: 'vue/dist/vue.js',
+      jquery: 'jquery',
+      public: path.resolve(__dirname,'src/client/public')
     }
   },
   resolveLoader: {

@@ -6,7 +6,7 @@
       </a>
       <ul class="list-inline">
         <li v-for="n in nav">
-          <a v-link="n.link">{{n.text}}</a>
+          <router-link :to="{path: n.link}">{{n.text}}</router-link>
         </li>
       </ul>
     </div>
