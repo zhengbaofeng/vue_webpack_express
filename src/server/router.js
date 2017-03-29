@@ -1,10 +1,8 @@
-import express from 'express'
+import myModule from './lib/module'
 
-const router = express.Router()
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: '哈哈' })
-})
-
-export default router
+module.exports = function (express, app) {
+  app.get('/', function (req, res) {res.render('index', { title: '郑宝丰'})});
+  app.post('/login', myModule.login);
+  app.post('/isLogin', myModule.isLogin);
+  app.post('/outLogin', myModule.outLogin);
+}
