@@ -1,0 +1,21 @@
+$h_bg:#5e87b0;
+#header{
+  background-color: $h_bg;
+  border:none;
+  border-radius: 0px;
+  margin: 0px;
+  img{
+    height: 40px;
+  }
+  .router-link-active{
+    color: #fff;
+  }
+}
+#login{
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s ease;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0
+  }
+}

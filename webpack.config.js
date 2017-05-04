@@ -20,7 +20,7 @@ module.exports = {
     root: path.join(__dirname, 'node_modules')
   },
   module: {
-    preLoaders: [
+    /*preLoaders: [
       {
         test: /\.vue$/,
         loader: 'eslint',
@@ -31,7 +31,7 @@ module.exports = {
         loader: 'eslint',
         exclude: [/node_modules/,/javascripts/]
       }
-    ],
+    ],*/
     loaders: [
       {
         test:/\.scss$/,
@@ -64,6 +64,11 @@ module.exports = {
         loader: 'url-loader?limit=10000&name=fonts/[hash:8].[name].[ext]'
       }
     ]
+  },
+
+  babel: {
+    presets: ['es2015', 'stage-0'],
+    plugins: ['transform-runtime', 'transform-vue-jsx'],
   },
   devtool: 'eval-source-map',
   eslint: {

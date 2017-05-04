@@ -1,8 +1,0 @@
-{
-  "host":"localhost",
-  "DBName":"test01",
-  "port":"3306",
-  "name":"root",
-  "pwd":"13041257198a",
-  "connectionLimit":3
-}

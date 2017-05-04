@@ -1,7 +1,9 @@
 import express from 'express'
 import path from 'path'
+import fs from 'fs'
+import fileStreamRotator from 'file-stream-rotator'
 import favicon from 'serve-favicon'
-import logger from 'morgan'
+import logger from 'morgan' //日志组件
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import webpack from 'webpack'
@@ -14,21 +16,29 @@ import config from '../../webpack.config'
 
 const app = express()
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
-// uncomment after placing your favicon in /public
-//express session加载
 app.use(cookie());
 app.use(session({
-  resave: true,
-  saveUninitialized: false,
-  secret: 'love'
+  resave: false,
+  saveUninitialized: true,
+  secret: 'cookie',
+  cookie: { maxAge: 1800000 },
 }));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
-app.use(logger('dev'))
+
+var logDir = path.join(__dirname, 'logs');
+fs.existsSync(logDir) || fs.mkdirSync(logDir);
+var accessLogStream = fileStreamRotator.getStream({
+  date_format: 'YYYYMMDD',
+  filename: path.join(logDir, 'log-%DATE%.log'),
+  frequency: 'daily',
+  verbose: true
+});
+
+app.use(logger('combined', {stream: accessLogStream}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
